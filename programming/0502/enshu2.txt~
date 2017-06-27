@@ -1,0 +1,76 @@
+演習問題２
+学籍番号:
+名前:前田浩貴
+
+演習(201)
+
+$ cd
+$ cd rogramming
+$ mkdir 0502
+
+演習(202)
+プログラム：
+/* 202 */
+#include <stdio.h>
+
+int main(void)
+{
+  puts("前田浩貴");
+  printf("16238059\n");
+  puts("生命情報工学科");
+  return 0;
+  }
+
+結果
+
+前田浩貴
+16238059
+生命情報工学科
+
+演習(203)
+プログラム
+/* 203 */
+#include <stdio.h>
+int main(void)
+{
+  int a, b, c;
+  printf("一つ目の数字を入力してください\n");   
+    scanf("%d",&a);
+    printf("二つ目の数字を入力してください\n");
+    scanf("%d",&b);
+    printf("三つ目の数字を入力してださい\n");
+    scanf("%d",&c);
+    char wa, seki;
+    wa = a + b + c;
+    seki = a * b * c;
+    printf("%d+%d+%d=%d\n", a, b, c, wa);
+    printf("%d*%d*%d=%d\n", a, b, c, seki);
+    return 0;
+}
+
+結果
+一つ目の数字を入力してください
+2
+二つ目の数字を入力してください
+3
+三つ目の数字を入力してださい
+4
+2+3+4=9
+2*3*4=24
+
+
+演習(204)
+/* 204 */
+#include <stdio.h>
+int main(void)
+{
+  printf("A\nAB\nABC\nABCD\nABCDE\n");
+  return 0;
+}
+
+結果
+A
+AB
+ABC
+ABCD
+ABCDE

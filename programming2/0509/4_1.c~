@@ -1,0 +1,32 @@
+#include <stdio.h>
+#include <string.h>
+
+void bublesort(char a[], int n);
+
+int main(void){
+
+  char a[] ="yamadatakashi";
+  int n = strlen(a);
+  printf("%d\n%s\n",n,a);
+  bublesort(a,n);
+  printf("%s\n",a);
+  return 0;
+}
+void bublesort(char a[], int n){
+  char temp;
+  while(n>0){
+    int bdone =0;
+    int i = 1;
+    while(i<n){
+      if(a[i-1]>a[i]){
+	temp = a[i-1];
+	a[i-1] = a[i];
+	a[i] = temp;
+	bdone =1;
+      }
+      i++;
+    }
+    if(bdone ==0)break;
+    n--;
+  }
+}

@@ -1,0 +1,27 @@
+/* 1001 */
+#include <stdio.h>
+int main (void){
+  printf("number=");
+  int a;
+  scanf("%d",&a);
+  switch(a){
+  case 1:
+    printf("One");
+    break;
+  case 2:
+    printf("two");
+    break;
+  case 3:
+    printf("Three");
+    break;
+  case 4:
+    printf("four");
+    break;
+  case 5:
+    printf("five");
+    break;
+  default:
+    printf("例外");
+  }
+    return 0;
+  }

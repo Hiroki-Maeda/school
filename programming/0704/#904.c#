@@ -1,0 +1,24 @@
+/* 904 */
+#include <stdio.h>
+int main(void){
+  int n, i;
+  char moji[30];
+  printf("文字を入力してください\n");
+  scanf("%s",moji);
+
+  for(n=0;moji[n]!=0;n++){
+ 
+
+ }
+ 
+  for(n=n-1;n>0;n--){
+    
+  
+  }
+    printf("入力した文字を反対から表示させると＝",);
+  gyaku[i]=moji[n];
+  i=i+1;
+  gyaku[i]=0;
+  printf("入力した文字を反対から表示させると＝%s\n",gyaku);
+  return 0;
+  }

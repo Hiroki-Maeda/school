@@ -1,0 +1,14 @@
+/* 703 */
+#include <stdio.h>
+int main(void)
+{
+  int a;
+  printf("数字を入力してください=");
+  scanf("%d",&a);
+  if(a%2==0){
+    printf("個の数は偶数です\n");
+  }else{
+    printf("個の数は奇数です\n");
+  }
+  return 0;
+}

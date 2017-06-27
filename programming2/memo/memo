@@ -1,0 +1,4 @@
+strcmp
+#include <string.h>
+s1 > s2 で正の値、s1 < s2 で負の値、s1 = s2で 0 を返す。この大小関係は一般に文字コード順による。
+int strcmp(const char *s1, const char *s2);

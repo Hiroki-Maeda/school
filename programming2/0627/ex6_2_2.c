@@ -1,0 +1,46 @@
+#include <stdio.h>
+#include <string.h>
+
+typedef struct name_list{
+  char *name;
+  struct name_list *next;
+}LIST;
+
+int main(){
+  LIST name0={NULL,NULL};
+  LIST name1={"deguchi",NULL};
+  LIST name2={"itoh",NULL};
+  LIST name3={"kurata",NULL};
+  LIST name4={"ouchi",NULL};
+
+  LIST *p;
+  LIST *head;
+  LIST *pb;
+  LIST addata = {"gotoh",NULL};
+
+  name0.next = &name1;
+  name1.next = &name2;
+  name2.next = &name3;
+  name3.next = &name4;
+
+  for(p=&name1;p!=NULL;p=p->next){
+    printf("%s\n",p->name);
+  }
+  printf("\n");
+
+  head=&name0;
+  p=head->next;
+  pb=head;
+  while(p!=NULL&&strcmp(p->name,addata.name)<=0){
+    pb=p;
+    p=p->next;
+  }
+  pb->next =&addata;
+  addata.next=p;
+  
+  for(p=head->next;p!=NULL;p=p->next){
+    printf("&s\n",p->name);
+  }
+  return 0;
+}
+

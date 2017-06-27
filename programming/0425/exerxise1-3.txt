@@ -1,0 +1,31 @@
+学生番号:16238059
+名前:前田　浩貴
+(3,1)
+$ cd ./programming
+$ mkdir 0425
+(3,2)
+(a)
+#hello.txt#\hello.txt~\ダウンロード\デスクトップ\ビデオ\ミュージック\hello.txt\programming\テンプレート\ドキュメント\ピクチャ\公開
+(b)
+$ cd
+$ touch sample.c
+(c)
+$ mv sample.c ./programming/0425/
+(3,3)
+ /**** moji.c ****/
+ #include <stdio.h>
+
+ int main(void){
+  char s[254];
+  int i;
+  printf("aからzまでを繰り返し順番に打ち込んでください:");
+  scanf("%s", s);
+  for(i=0; s[i] != '\0'; i++);
+  printf("あなたの文字数は %d でした。\n", i);
+  }
+結果
+q238059h@iav086:~/programming/0425$ ls
+moji  moji.c  moji.c~  sample.c
+q238059h@iav086:~/programming/0425$ ./moji
+aからzまでを繰り返し順番に打ち込んでください:abcdefghijklmnopqrstuvwxyz
+あなたの文字数は 26 でした。

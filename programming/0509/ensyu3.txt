@@ -1,0 +1,233 @@
+演習問題３
+学籍番号：16238059
+名前：前田　浩貴
+
+演習(300)
+$ cd programmin
+$ mkdir 0509 
+
+演習(301)
+4個
+
+演習(302)
+
+プログラム
+
+/* 302 */
+#include <stdio.h>
+int main(void)
+{
+  printf("     #\n");
+  printf("    ### o\n");
+  printf("   #####\n");
+  printf("  #######^^\n");
+  printf(" ###########\n");
+  printf("#############\n");
+  printf("     **\n");
+  printf("     **\n");
+  printf("     **\n");
+  printf("===========\n");
+  return 0;
+}
+
+結果
+
+q238059h@iav036:~/programming/0509$ ./302
+     #
+    ### o
+   #####
+  #######^^
+ ###########
+#############
+     **
+     **
+     **
+===========
+
+
+演習(303)
+プログラム
+/* 303 */
+#include <stdio.h>
+int main(void)
+{
+  int a, b;
+  float fa, fb;
+  double da, db;
+  int wa, sa, seki, wari;
+  float fwa, fsa, fseki, fwari;
+double dwa, dsa, dseki, dwari;
+  printf("int型\n");
+  printf("一つ目の数を入力してください\n");
+  scanf("%d", &a);
+  printf("二つ目の数を入力してください\n");
+  scanf("%d", &b);
+  wa = a + b;
+  sa = a - b;
+  seki = a * b;
+  wari = a / b;
+
+
+  printf("intの和=%d\n", wa);
+  printf("intの差=%d\n", sa);
+  printf("intの積=%d\n", seki);
+  printf("intの割=%d\n", wari);
+  printf("float型\n");
+  printf("一つ目の数を入力してください\n");
+  scanf("%f",&fa);
+  printf("二つ目の数を入力してください\n");
+  scanf("%f", &fb);
+   fwa = fa + fb;
+  fsa = fa - fb;
+  fseki = fa * fb;
+  fwari = fa / fb;
+ printf("floatの和=%f\n", fwa);
+  printf("floatの差=%f\n", fsa);
+  printf("floatの積=%f\n", fseki);
+  printf("floatの割=%f\n", fwari);
+	printf("double型");
+  printf("一つ目の数を入力してください\n");
+  scanf("%lf", &da);
+  printf("二つ目の数を入力してください\n");
+  scanf("%lf", &db);
+
+  dwa = da + db;
+  dsa = da - db;
+  dseki = da * db;
+  dwari = da / db;
+  printf("doubleの和=%f\n", dwa);
+  printf("doubleの差=%f\n", dsa);
+  printf("doubleの積=%f\n", dseki);
+  printf("doubleの割=%f\n", dwari);
+  return 0;
+}
+
+結果
+q238059h@iav036:~/programming/0509$ ./303
+int型
+一つ目の数を入力してください
+3
+二つ目の数を入力してください
+5
+intの和=8
+intの差=-2
+intの積=15
+intの割=0
+float型
+一つ目の数を入力してください
+3
+二つ目の数を入力してください
+5
+floatの和=8.000000
+floatの差=-2.000000
+floatの積=15.000000
+floatの割=0.600000
+double型一つ目の数を入力してください
+3 
+二つ目の数を入力してください
+5
+doubleの和=8.000000
+doubleの差=-2.000000
+doubleの積=15.000000
+doubleの割=0.600000
+
+演習(304)
+
+プログラム
+/* 304 */
+#include <stdio.h>
+int main(void)
+{
+  double a, b;
+  
+  printf("Input number1=");
+  scanf("%lf",&a);
+  printf("Input number2=");
+  scanf("%lf",&b);
+  printf("****Results*********\n");
+  printf("%.1f+%f=%f\n", a, b, a+b);
+  printf("%.1f-%f=%f\n", a, b, a-b);
+  printf("%.1f*%f=%f\n", a, b, a*b);
+  printf("%.1f/%f=%f\n", a, b, a/b);
+  return 0;
+}
+
+
+結果
+
+q238059h@iav036:~/programming/0509$ ./304
+Input number1=1.0
+Input number2=3.0
+****Results*********
+1.0+3.000000=4.000000
+1.0-3.000000=-2.000000
+1.0*3.000000=3.000000
+1.0/3.000000=0.333333
+
+
+０で割ったとき
+
+q238059h@iav036:~/programming/0509$ ./304
+Input number1=1.0
+Input number2=0.0
+****Results*********
+1.0+0.000000=1.000000
+1.0-0.000000=1.000000
+1.0*0.000000=0.000000
+1.0/0.000000=inf
+
+演習(305)
+プログラム
+/* 305 */
+#include <stdio.h>
+int main(void)
+{
+  double a1, a2, a3, a4;
+  a1 = 1+1/2;
+  a2 = 1+1.0/2;
+  a3 = 1+1/2.0;
+  a4 = 1+1.0/2.0;
+  printf("a1=%f\na2=%f\na3=%f\na4=%f\n", a1, a2, a3, a4);
+  return 0;
+}
+
+結果
+q238059h@iav036:~/programming/0509$ ./305
+a1=1.000000
+a2=1.500000
+a3=1.500000
+a4=1.500000
+
+考察
+a1の1/2の２と１が整数なので足される数の小数点以下は切り捨てられたと考えられる
+
+
+演習(306)
+
+プログラム
+/* 306 */
+#include <stdio.h>
+int main(void)
+{
+  int a;
+  printf("10進数の数を入力してください\n");
+  scanf("%d",&a);
+     printf("16進数では%x\n",a );
+   return 0;
+}
+
+結果
+q238059h@iav036:~/programming/0509$ ./306
+10進数の数を入力してください
+12
+16進数ではc
+
+
+
+10進数で200のとき16進数ではc8
+10進数で300のとき16進数では12c
+
+
+
+
+

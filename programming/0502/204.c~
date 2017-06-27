@@ -1,0 +1,11 @@
+/* 204 */
+#include <stdio.h>
+int main(void)
+{
+  printf("A\n
+AB\n
+ABC\n
+ABCD\n
+ABCDE\n");
+  return 0;
+}

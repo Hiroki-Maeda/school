@@ -1,0 +1,9 @@
+(2.3)
+(a) $ cd
+(b) $ cd /home/i/q238059h/programming/0418/
+(c) $ pwd
+
+(2.4)
+./usr/include/stdio.h
+
+

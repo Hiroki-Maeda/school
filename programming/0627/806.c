@@ -1,0 +1,16 @@
+/*806*/
+#include<stdio.h>
+#include<math.h>
+int main(void)
+{
+  int i, n;
+int f[100];
+ i=100;
+ f[0]=0;
+ f[1]=1;
+  for(n=2;n<=i;n++){
+    f[n]=f[n-2]+f[n-1];
+    printf("%d\t%d\n",n ,f[n]);
+  }
+ return 0;
+}
