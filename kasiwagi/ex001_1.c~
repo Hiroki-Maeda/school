@@ -27,13 +27,13 @@ int main(){
   while(count<3){
     for(i=count;i<4;i++){
       for(j=count;j<4;j++){
-	while(b[i][k]==0){
+	while(b[k][count]==0){
 	  l++;
 	  k=(k+l)%4;
 	  printf("%d\n",k);
 	}
-	b[i][j]/=b[i][k];
-	c[i][j]/=b[i][k];
+	b[i][j]/=b[k][count];
+	c[i][j]/=b[k][count];
       }
       printf("%lf\n",b[i][k]);
     }
