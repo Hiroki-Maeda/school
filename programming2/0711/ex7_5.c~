@@ -1,0 +1,35 @@
+#include <strint.h>
+#include <stdio.h>
+#include <stdlib.h>
+
+#define HASH_SIZE 3
+
+typedef struct data{
+  char *name;
+  struct data *next;
+}LIST;
+
+int hash(char *ps);
+
+void dellist(LIST *ht[],char *dname);
+
+int main(){
+
+  LIST *ht[HASH_SIZE];
+  LIST *p;
+  LIST s[6] ={
+    {"yamada",NULL},
+    {"kawada",NULL},
+    {"mutoh",NULL},
+    {"amano",NULL},
+    {"tanaka",NULL},
+    {"fukuda",NULL},
+  };
+
+  int i;
+  char *delname = "mutoh";
+
+  for(i=0;i<6;i++){
+    printf("Name: %s,  Hash value %d \n",s[i].name, hash(s[i].name));
+
+    
