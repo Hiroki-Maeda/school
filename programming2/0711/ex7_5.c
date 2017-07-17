@@ -1,4 +1,4 @@
-#include <strint.h>
+#include <string.h>
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -40,11 +40,11 @@ int main(){
     for(i=0;i<HASH_SIZE;i++){
       printf("hHash value %d\t",i);
       for(p=ht[i];p!=NULL;p=p->next){
-	printf("%s\t",p->name);
+	       printf("%s\t",p->name);
       }
-	printf("\n");
+	   printf("\n");
     }
-
+    
     dellist(ht,delname);
     
     printf("\nAfter deletion\n");
@@ -68,10 +68,24 @@ int hash(char *ps){
 }
 
 void dellist(LIST *ht[], char *dname){
+    printf("%s",dname);
   int hvalue = hash(dname);
-  LIST *p;
-  p=ht[hvalue];
-  while(p!=NULL){
-    *ht[]
-  
+    LIST *p;
+    LIST *bp;  
+    p=ht[hvalue];
+  while(p!=NULL && strcmp(p->name,dname)!=0){
+        bp=p;
+        p=p->next;
+  }
+    if(p==NULL){
+        printf("There is no data to be deleted\n");
+    }else{
+        if(p==ht[hvalue]){
+            ht[hvalue]=p->next;
+        }else{
+            bp->next=p->next;
+        }
+    } 
+    
+}
   
