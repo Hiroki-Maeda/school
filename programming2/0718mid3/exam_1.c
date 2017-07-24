@@ -15,7 +15,7 @@ int hash(char *ps);
 void input(LIST *sk,int *nmax);
 //void output(LIST *sk,int nmax,double engave,double mathave,double sciave);
 //void get_heikin(LIST *sk,int nmax,double *engave,double *mathave,double *sciave);
-void hash_input(LIST *sk ,LIST *hash);
+void hash_input(LIST *sk ,LIST *st);
 
 /******************************************************/
 
@@ -38,7 +38,7 @@ int main(void){
 printf("hashv\n");
   for(i=0;i<=nmax;i++){
     printf("bbbb\n");
-    hash_input(&sk[i],ht[i]);
+    hash_input(sk,ht[i]);
   }
   printf("hash_input\n");
 
@@ -152,24 +152,28 @@ int hash(char *ps){
 
 
 void hash_input(LIST *sk,LIST *ht){
-  LIST *bp;
-  LIST *p;
-printf("aaaa");
-  if(ht==NULL){
-    ht=sk;
-  }else{
-    if(strcmp(sk->name,ht->name)<0){
-      sk->next=ht;
+    LIST *bp;
+    LIST *p;
+    printf("aaaa");
+    if(ht==NULL){
       ht=sk;
+  }else{
+      if(strcmp(sk->name,ht->name)<0){
+          ht=sk;
+          sk->next=ht;
+        
     }else{
-      p=ht;
-      while(strcmp(sk->name,p->name)>0){
-        bp=p;
-        p=p->next;
+        p=ht;
+        while(strcmp(sk->name,p->name)>=0 && *(p->next)->name!=EOF){
+          bp=p;
+          p=p->next;
+      }if(strcmp(sk->name,p->name)>0 ){
+          p->next=sk;
+      }else{
+          bp->next=sk;
+          sk->next=p;
       }
-       bp->next=sk;
-       sk->next=p;
     }
-  }
-
+  } 
 }
+
