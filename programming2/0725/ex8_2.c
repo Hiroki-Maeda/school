@@ -55,12 +55,23 @@ void printdata(NODE *root){
 }
 
 NODE *getdata(NODE *root , int x){
-    NODE *p;
-    if(root->key==key){
-     return root;   
-    }else if(root == NULL){
-        break;
-    }else if(getdata(root->left)==NULL);
-        getdata(root->right)
-    }
+  NODE *p;
+  if(root->key==x){
+    return root;   
+  }
+  if(root->left == NULL){
+    return NULL;
+  }
+  p=getdata(root->left,x);
+  if(p!=NULL){
+    return p;
+  }
+  if(root->right == NULL){
+    return NULL;
+  }
+  p=getdata(root->right,x);
+    if(p!=NULL){
+      return p;
+  }
+    return NULL;
 }

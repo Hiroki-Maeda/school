@@ -44,8 +44,10 @@ output(heikin(hashtable),hashtable);
   return(0);
 }
 int hash(char *ps){
-  int total=7;
+  int total=0;
+  while(*ps!='\n'){
   total=total+*ps++;
+  }
   return total%HASH_SIZE;
 
 }
@@ -83,7 +85,7 @@ void input(LIST sk[],int *nmax){
   if((fpi=fopen(infile,"r"))==NULL){
     printf("error at file\n");exit(1);
   }
-  while(fscanf(fpi,"%d %s %d",&sk[*nmax].id,&sk[*nmax].name,&sk[*nmax].point)!=EOF){
+  while(fscanf(fpi,"%d %s %d",&sk[*nmax].id,sk[*nmax].name,&sk[*nmax].point)!=EOF){
     sk[*nmax].next=NULL;
     (*nmax)++;
   }fclose(fpi);
