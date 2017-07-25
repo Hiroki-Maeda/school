@@ -2,7 +2,7 @@
 #include<string.h>
 #include<stdlib.h>
 
-#define HASH_SIZE 26
+#define HASH_SIZE 4
 
 typedef struct date{
 int id;
