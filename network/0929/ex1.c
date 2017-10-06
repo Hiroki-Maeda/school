@@ -34,6 +34,7 @@ int main(){
   for(i=0;i<3;i++){
     printf("%s %d %d\n",(p+i)->name, (p+i)->age, (p+i)->hight);
   }
+  free(p);
   return 0;
 }
 
