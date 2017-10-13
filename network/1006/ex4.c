@@ -9,15 +9,18 @@ typedef struct dummy_Cell {
 } Cell;
 
 int main(){
+
   
   Cell *c2;
-  c2 = (Cell *)malloc(sizeof(Cell));
-  c2->data =100;
-  c2->next =NULL;  
+   c2 = (Cell *)malloc(sizeof(Cell));
+  c2->data = 100;
+  c2->next = NULL;
+  
   Cell *c1;
   c1 = (Cell *)malloc(sizeof(Cell));
   c1->data = 200;
   c1->next = NULL;
+  
   c1->next = c2;
 
   printf("First cell %d, Next cell %d \n",c1->data,c2->data);

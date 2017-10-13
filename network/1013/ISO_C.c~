@@ -1,0 +1,22 @@
+#include <stdio.h>
+
+int main(void) {
+ #ifdef __STDC__
+ #if defined(__STDC_VERSION__) && __STDC_VERSION__>=199901L
+ /* C99以後に対応している */
+ printf("コンパイラは，C99に対応している(バージョン：%ld)．\n", __STDC_VERSION__);
+ #elif defined(__STDC_VERSION__) && __STDC_VERSION__>=199409L
+ /* C95に対応しているが，C99に対応していない */
+ printf("コンパイラは，C95に対応している(バージョン：%ld)．\n", __STDC_VERSION__);
+ #else
+ /* C89だけに対応している */
+ printf("コンパイラは，C89に対応している．\n");
+ #endif
+ #else
+ /* ISO Cに対応していない */
+ printf("コンパイラは，ISO Cの標準に対応していない．\n");
+ #endif
+
+ return 0;
+
+}
