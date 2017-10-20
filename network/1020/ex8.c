@@ -1,10 +1,41 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 int main(){
+  int i;
+  int a[5];
+  for(i=0;i<5;i++){
+    a[i]=i;
+  }
+  int ans=0;
+  for(i=0;i<5;i++){
+    ans +=a[i];
+  }
+  printf("%d\n",ans);
 
-  int a[]={1,2,3,4,5};
-  
-  pirntf("%d",a[0]+a[1]+a[2]+a[3]+a[4]);
-  return 0;
+  int *b;
+  b = (int *)malloc(sizeof(int)*5);
+  for(i=0;i<5;i++){
+    *(b+i)=i+5;
+  }
+  int *c;
+  c = (int *)malloc(sizeof(int)*5);
+  for(i=0;i<5;i++){
+    *(c+i)=*(b+i);
+  }
+  ans =0;
+    for(i=0;i<5;i++){
+      ans +=*(c+i);
+  }
+  printf("%d\n",ans);
+return 0;
 
 }
+
+/********answer****************
+
+q238059h@iav059:~/program/network/1020$ ex8
+10
+35
+
+******************************/
