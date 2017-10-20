@@ -13,20 +13,36 @@ int main(int argc,char *argv[]){
            
         line[i++] = fgetc(fp);
         if(feof(fp)){
-            printf("break%d\n",i);
             break;
-        }else{
-            printf("feof=%d\n",feof(fp));
-        }
-        if(ferror(fp)){
-            printf("IO Exception!\n");
-        }    
+        }  
    
     }
+
+  	   if(ferror(fp)){
+           printf("IO Exception!\n");
+        }    
     printf("%s",line);
     fclose(fp);
     
     return 0;
 }
     
-    
+/**********************answe**********************
+  maeda@DESKTOP-MGJGBGP:/mnt/c/Users/trump/Desktop/hiroki/school/network/1013$ ./ex6 foo.txt
+3
+4
+545
+33
+4
+66
+626
+56
+6
+66
+689
+12
+454
+a  
+
+
+*************************************************/ 
