@@ -1,0 +1,41 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+int main() {
+
+  char line[256];
+  int len;
+
+
+  while (1) {
+      fgets(line,256,stdin);
+      if (ferror(stdin)) {
+        printf("IO Exception!\n");
+        exit(1);
+      }
+      if (feof(stdin)) {
+        break;
+      }
+      len=strlen(line);
+      if(line[len-1]=='\n'){
+        line[len-1]='\0';
+      }
+      printf("%s\n",line);
+  }
+
+  return 0;
+}
+
+
+/********answer********************:
+
+q238059h@iav059:~/program/network/1020$ ex7_2
+aaaa
+aaaa
+bbbbb
+bbbbb
+cccccc
+cccccc
+
+**********************************/
