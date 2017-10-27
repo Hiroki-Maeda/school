@@ -5,7 +5,7 @@ int main(){
   int i;
   int a[5];
   for(i=0;i<5;i++){
-    a[i]=i;
+    a[i]=i+1;
   }
   int ans=0;
   for(i=0;i<5;i++){
@@ -16,7 +16,7 @@ int main(){
   int *b;
   b = (int *)malloc(sizeof(int)*5);
   for(i=0;i<5;i++){
-    *(b+i)=i+5;
+    *(b+i)=i+6;
   }
   int *c;
   c = (int *)malloc(sizeof(int)*5);
@@ -35,7 +35,7 @@ return 0;
 /********answer****************
 
 q238059h@iav059:~/program/network/1020$ ex8
-10
-35
+15
+40
 
 ******************************/

@@ -3,7 +3,7 @@
 
 void myfgets(char *a,int b,FILE *fp);
 
-int main( char argc, char *argv[]){
+int main(int argc, char *argv[]){
   FILE *fp;
   if((fp=fopen(argv[1],"r"))==NULL){
     printf("file open error\n");
