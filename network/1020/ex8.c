@@ -28,6 +28,8 @@ int main(){
       ans +=*(c+i);
   }
   printf("%d\n",ans);
+  free(b);
+  free(c);
 return 0;
 
 }

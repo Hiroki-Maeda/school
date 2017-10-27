@@ -19,13 +19,22 @@ int main(int argc, char *argv[]){
 
 void myfgets(char *a,int b,FILE *fp){
   int i;
+  int checkSize =0;
   for(i=0;i<=b;i++){
-    if((*(a+i) = fgetc(fp))=='\n')
+    if((*(a+i) = fgetc(fp))=='\n'){
       break;
+    }
+    if(i<b-1){
+      checkSize = 1;
+    }
   }
- 
+  if(checkSize = 1){
+    *(a+i++)='\n';
+    *(a+i)='\0';
+  }else{
+    *(a+i)='\n';
+  }
 }
-
 /************answer***********
 
 q238059h@iav059:~/program/network/1020$ ex6_5 ex6_5.txt

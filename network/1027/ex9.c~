@@ -1,0 +1,79 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+typedef struct person{
+  char* name;
+  int age;
+  int height;
+}DATA;
+
+
+DATA* prepareData();
+void printData(DATA* data);
+void sort(DATA* data);
+
+
+int main(void){
+
+  DATA* data;
+ 
+  data=prepareData();
+
+  printf("///////before sorting///////\n");
+  printData(data);
+
+  sort(data);
+
+  printf("///////after sorting///////\n");
+  printData(data);
+
+  free(data);
+
+  return 0;
+}
+
+
+
+DATA* prepareData(){
+  int i;
+  DATA* data;
+
+  data=(DATA*)malloc(sizeof(DATA)*3);
+
+  for(i=0;i<3;i++){
+      data[i].name=(char*)malloc(sizeof(char)*256);
+      printf("name:");
+      scanf("%s",data[i].name);
+      printf("age:");
+      scanf("%d",&data[i].age);
+      printf("height:");
+      scanf("%d",&data[i].height); 
+  }
+
+  return data;
+}
+
+
+void printData(DATA* data){
+  int i;
+  for(i=0;i<3;i++){
+      printf("%s %d %d\n",data[i].name,data[i].age,data[i].height);
+  }
+}
+
+
+void sort(DATA* data){
+  DATA temp;
+  int i,j;
+
+  for(i=0;i<3;i++){
+    for(j=i+1;j<3;j++){
+      if(data[i].height<data[j].height){
+        temp=data[i];
+        data[i]=data[j];
+        data[j]=temp;
+      }
+    }
+  }
+
+}
