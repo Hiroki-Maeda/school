@@ -49,7 +49,7 @@ void read(DATA **ppdt){
     pdt->age=toshi;
     pdt->height=shincyou;
     /* (printf("ppdt+i= %p\n",ppdt+i);*/
-    ppdt[i]=pdt;
+    *(ppdt+i)=pdt;
   }
 }
 
@@ -57,7 +57,7 @@ void write(DATA **ppdt){
   int i;
 
   for(i=0;i<MEMBER;i++){
-    printf("%s %d %d\n",ppdt[i]->name,ppdt[i]->age,ppdt[i]->height);
+    printf("%s %d %d\n",(*(ppdt+i))->name,(*(ppdt+i))->age,(*(ppdt+i))->height);
   }
 }
 
@@ -77,11 +77,34 @@ void sort(DATA **ppdt){
   for(i=0;i<MEMBER;i++){
     /*      printf("%s %d %d",(ppdt[i]->name,ppdt[i]->age,ppdt[i]->height);*/
     for(j=i+1;j<MEMBER;j++){
-      if(ppdt[j]->height > ppdt[i]->height){
-        temp=ppdt[i];
-        ppdt[i]=ppdt[j];
-        ppdt[j]=temp;
+      if((*(ppdt+j))->height > (*(ppdt+i))->height){
+	temp=*(ppdt+i);
+	*(ppdt+i)=*(ppdt+j);
+        *(ppdt+j)=temp;
       }
     }
   }
 }
+
+/***********answer**************
+q238059h@ias004:~/program/network/1027$ ex9
+Input:
+Nobuta
+18
+160
+Kame
+19
+180
+Imawono
+50
+170
+Input Data:
+Nobuta 18 160
+Kame 19 180
+Imawono 50 170
+Output Data:
+Kame 19 180
+Imawono 50 170
+Nobuta 18 160
+
+******************************************/
