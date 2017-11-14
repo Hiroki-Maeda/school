@@ -1,0 +1,79 @@
+#include <stdio.h>
+#include <stdlib.h>
+#define MAXNUM 3
+
+void gyouretuSeki(int a[MAXNUM][MAXNUM],int b[MAXNUM][MAXNUM],int c[MAXNUM][MAXNUM]);
+
+int main(){
+
+  int i,j;
+  int a[3][3]={{0,-1,0},{1,0,0},{0,0,1}};
+  int b[3][3]={{0,1,0},{-1,0,0},{0,0,1}};
+  int c[3][3];
+
+
+  for (i=0;i<3;i++){
+    for (j=0;j<3;j++){
+      printf("a[i][j]=%d, ",a[i][j]);
+    }
+    printf("\n");
+  }
+
+
+  for (i=0;i<3;i++){
+    for (j=0;j<3;j++){
+      printf("b[i][j]=%d, ",b[i][j]);
+    }
+    printf("\n");
+  }
+
+
+  gyouretuSeki(a,b,c);
+
+
+  for (i=0;i<3;i++){
+    for (j=0;j<3;j++){
+      printf("c[i][j]=%d, ",c[i][j]);
+    }
+    printf("\n");
+  }
+
+
+  return 0;
+
+}
+
+void gyouretuSeki(int a[MAXNUM][MAXNUM],int b[MAXNUM][MAXNUM],int c[MAXNUM][MAXNUM]){
+  int i;
+  int j;
+  int k;
+  int ans=0;
+  for(i=0;i<MAXNUM;i++){
+    for(k=0;k<MAXNUM;k++){
+      for(j=0;j<MAXNUM;j++){
+	ans+=a[j][i]*b[k][j];
+      }
+      c[k][i]=ans;
+      ans=0;
+    }
+  }
+  // ここを作成すること。
+
+} 
+
+
+/******answer************************
+
+q238059h@iav059:~/program/network/1110$ ex12
+a[i][j]=0, a[i][j]=-1, a[i][j]=0, 
+a[i][j]=1, a[i][j]=0, a[i][j]=0, 
+a[i][j]=0, a[i][j]=0, a[i][j]=1, 
+b[i][j]=0, b[i][j]=1, b[i][j]=0, 
+b[i][j]=-1, b[i][j]=0, b[i][j]=0, 
+b[i][j]=0, b[i][j]=0, b[i][j]=1, 
+c[i][j]=1, c[i][j]=0, c[i][j]=0, 
+c[i][j]=0, c[i][j]=1, c[i][j]=0, 
+c[i][j]=0, c[i][j]=0, c[i][j]=1, 
+
+
+****************************************/
