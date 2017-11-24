@@ -83,7 +83,7 @@ Seq *srchS(Seq *sq,char *startcdn){
     if(temp==NULL){
       return NULL;
     }
-    if(strchr((temp->nc),startcodn[i])){
+    if(strchr(&(temp->nc),startcdn[i])){
       if(i==0){
 	ans=temp;
       }
@@ -92,11 +92,43 @@ Seq *srchS(Seq *sq,char *startcdn){
     }else{
       ans=0;
       i=0;
-      if(i==0){
+      if(temp->next!=NULL){
 	temp=temp->next;
-      }
+      }else{
+	return NULL;
+	  }
     }
     
   } 
 }
 
+Seq *srchE(Seq *sq,char *stopcdn[3]){
+  Seq *ans=0;
+  Seq *temp = sq;
+  int i=0;
+  while(1){
+    ans = temp;
+    for(i=0;i<3;i++){
+      if((strchr(&((temp+i)->nc) , atoi(stopcdn[i])))==NULL){
+	break;
+	}
+      if(i==2){
+	return ans;
+      }
+    }
+    temp+=3;
+    if(temp==NULL){
+      return NULL;
+    }
+  }
+}
+
+int freeLISTnodes(Seq *sq){
+  Seq *temp;
+  while(temp!=NULL){
+    temp=sq->next;
+    free(sq);
+    sq=temp;
+  }
+  return 0;
+}
