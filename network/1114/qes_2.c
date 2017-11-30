@@ -65,7 +65,7 @@ int chkCdn(char sq[], char *cdn){
     if(temp==NULL){
       return count;
     }
-    if(strncmp(sq, cdn, 3)){
+    if(0==strncmp(sq, cdn, 3)){
       count++;
     }
     sq++;
@@ -96,30 +96,36 @@ Seq *srchS(Seq *sq,char *startcdn){
 	temp=temp->next;
       }else{
 	return NULL;
-	  }
+      }
     }
     
   } 
 }
 
+
 Seq *srchE(Seq *sq,char *stopcdn[3]){
   Seq *ans=0;
   Seq *temp = sq;
+  Seq *p;
   int i=0;
   while(1){
+
     ans = temp;
+    p = temp;
     for(i=0;i<3;i++){
-      if((strchr(&((temp+i)->nc) , atoi(stopcdn[i])))==NULL){
+      if((strncmp(&(p->nc) , (stopcdn[0]+i), 1))!=0&&(strncmp(&(p->nc) , (stopcdn[1]+i), 1))!=0&&(strncmp(&(p->nc) , (stopcdn[2]+i), 1))!=0){
+	i=0;
 	break;
-	}
-      if(i==2){
-	return ans;
       }
+	if(i==2){
+	  return ans;
+	}
+	p=p->next;
     }
-    temp+=3;
-    if(temp==NULL){
+    if((temp=(((temp->next)->next)->next))==NULL){
       return NULL;
     }
+    p=temp;
   }
 }
 
