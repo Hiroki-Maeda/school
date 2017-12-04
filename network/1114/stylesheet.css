@@ -1,0 +1,41 @@
+header {padding : 1px 10px;
+       }
+.header {
+    padding : 0px 5px;
+
+    border:  solid;
+    border-width : 1px;
+    border-color : #ddddff ;
+    background-color : #f5f5ff;
+}
+
+.center_content {
+    margin : auto;
+    width : 700px;
+    border : solid;
+    border-radius : 7px;
+    border-width :1px; 
+    border-color: #ddffff;
+    background-color : #f4ffff;
+    
+}
+
+.content {
+    padding: 40px;
+
+}
+
+img {margin : 5px;}
+.source {
+    border : solid;
+    border-width: 1px;
+    border-color : #aaeeff;
+    background-color : #ffffff;
+    margin : 5px;
+    height : 600px;
+    overflow : scroll;
+}
+
+table {
+    margin : 5px;
+      }
