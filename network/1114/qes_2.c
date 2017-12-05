@@ -107,6 +107,7 @@ Seq *srchE(Seq *sq,char *stopcdn[3]){
   Seq *ans=0;
   Seq *temp = sq;
   Seq *p;
+  int g = 0;
   int i=0;
   while(1){
 
@@ -117,8 +118,15 @@ Seq *srchE(Seq *sq,char *stopcdn[3]){
 	i=0;
 	break;
       }
+        if(i==1){
+            if((p->nc) == 'G'){
+             g=1;   
+            }
+        }
 	if(i==2){
+        if((g==1&&(p->nc)=='G')==0){
 	  return ans;
+        }
 	}
 	p=p->next;
     }
@@ -126,6 +134,7 @@ Seq *srchE(Seq *sq,char *stopcdn[3]){
       return NULL;
     }
     p=temp;
+    g=0;
   }
 }
 
