@@ -12,12 +12,33 @@ header {padding : 1px 10px;
 .center_content {
     margin : auto;
     width : 700px;
-    border : solid;
+    border-style : solid;
     border-radius : 7px;
     border-width :1px; 
     border-color: #ddffff;
     background-color : #f4ffff;
     
+}
+
+.center_content_c {
+    margin : auto;
+    width : 700px;
+    border-style : solid;
+    border-radius : 7px;
+    border-width :1px; 
+    border-color: #ffddff;
+    background-color : #fff4ff;
+    
+}
+
+.left_content {
+    padding: 5px;
+    padding-right: 10px;
+    position: fixed;
+    border-style: solid;
+    border-color: #ffffff;
+    border-width: 1px;
+    box-shadow: 2px 2px 2px 2px #aaaaaa;
 }
 
 .content {
@@ -27,7 +48,7 @@ header {padding : 1px 10px;
 
 img {margin : 5px;}
 .source {
-    border : solid;
+    border-style : solid;
     border-width: 1px;
     border-color : #aaeeff;
     background-color : #ffffff;
@@ -39,3 +60,62 @@ img {margin : 5px;}
 table {
     margin : 5px;
       }
+
+.form {
+    width: 400px;
+    height: 100px;
+}
+.button {
+    
+    text-decoration: none;
+    color: black;
+    line-height: 100px;
+    text-align: center;
+    margin : auto;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #dddddd;
+    width: 400px;
+    margin-top: 30px;
+    box-shadow: 2px 2px 3px 3px #cccccc;
+    
+}
+
+.home_to_page {
+    color ;blue;
+    font-size: 30px;
+    text-decoration: none;
+}
+
+.home_content {
+    margin: auto;
+    width : 600px;
+    margin-top: 50px;
+}
+
+.button:hover {
+    background-color: #eeeeff;
+    cursor: n-resize;
+}
+
+
+.button:active {
+    box-shadow : 0px 0px 0px 0px #ffffff;
+    
+}
+
+.home_to_page:visited {
+    color: blue;
+}
+
+.question {
+    padding : 0px 15px;
+}
+
+.nav {
+    display: inline;
+}
+
+pre {
+    font-size: 20px;
+}

@@ -8,14 +8,24 @@
   <body>
     <header>
       <div class="header">
-      <p>homepage コンテスト<p>
-	  <span><a href="./index.html">home</a>->問１</p></span>
+          <p>web page コンテスト</p>
+          <a href="./index.html" class="nav">home</a><p class="nav"> -&gt 問１</p>
       </div>
     </header>
     <div class="content">
+        <div class="left_content">
+            <p>項目</p>
+            <ul>
+                <li><a href="index.html">home</a></li>
+                <li><a href="./qes_1.html">問１</a></li>
+                <li><a href="./qes_2.html">問２</a></li>
+                <li><a href="./aboutC.html">C言語について</a></li>
+                <li><a href="HTML5_notex.html">HTML5の注意事項</a></li>
+            </ul>
+        </div>
     <div class="center_content">
       <h2>問１</h2>
-      <h3>次の行列の積に関するプログラムで使われる関数をC言語で作成せよ。</h3>
+      <h3>次の行列の積に関するプログラムで使われる関数をC言語で作成せよ。</h3><div class="question">
       <p>このプログラムは、要素として int 型の値を持つ 3 × 3 行列に燗する操作を行っている。<br>2つの関数、関数 matAvrDiagElements と関数 mat4thPower のみ作成せよ。関数 matProduct は作成済みとする。<br>関数 matAvrDiagElements は
 、第1引数の行列からその行列の対角要素(3個の要素)の平均値を求めて返り値として返す
 。関数 matProduct は
@@ -23,11 +33,9 @@
 。なお、必要であればこれら3つの関数はお互いに内部で使用しても構わない
 
 。ただし、作成する関数はメイン関数内に示している行列の各要素の値が変わっても
-、正しく動作するように作成すること実行した結果、画面表示はつぎのようになる。</P>
-
-      </p>
+          、正しく動作するように作成すること実行した結果、画面表示はつぎのようになる。</p></div>
       <h3>出力結果</h3>
-      <img src="./qes_1.png"></img>
+      <img src="./qes_1.png">
       <p>コード全文</p>
       <div class="source">
 	<pre>
@@ -47,14 +55,14 @@ int main(int arc, char *argv[]){
   printf("average of diagonal elements = %f \n",av);
   matProduct(a,b,c);
   for(i=0;i<3;i++){
-    for(j=0;j<3;j++){
+    for(j=0;j&lt3;j++){
       printf("%d\t",c[i][j]);
     }
     printf("\n");
   }
   mat4thPower(a,d);
-  for(i=0;i<3;i++){
-    for(j=0;j<3;j++){
+  for(i=0;i&lt3;i++){
+    for(j=0;j&lt3;j++){
       printf("%d\t",d[i][j]);
     }
     printf("\n");
@@ -111,14 +119,14 @@ void mat4thPower(int a[3][3], int d[3][3]){
   <tr><td>matAvrDiagElements</td><td>double matAvrDiagElements(int a[3][3]){
     return (double)((a[0][0]+a[1][1]+a[2][2])/3.0);
 }</td></tr>
-	  <tr><td>mat4thPower</td><td>void mat4thPower(int a[3][3], int d[3][3]){
+	  <tr><td>mat4thPower</td><td>void mat4thPower(int a[3][3], int d[3][3]){<br>
   int i;
-  int j;
+  int j;<br>
   for(i=0;i<3;i++){
     for(j=0;j<3;j++){
       d[i][j]=a[i][j];
     }
-  }
+  }<br>
   for(i=0;i<3;i++){
   matProduct(d,a,d);
   }
@@ -132,6 +140,7 @@ void mat4thPower(int a[3][3], int d[3][3]){
   <li>mat4thPower</li>
   <p>まずdの中にaと同じものをいれてそのdに3度aをかけることで4乗をしている。</p>
 </ul>
+          <div style="text-align : center;"><a href="qes_2.html">問２へ</a></div>
 </div>
 </div>
 
