@@ -66,12 +66,12 @@ int main(void){
 void sort(int n, int* pb){
   int temp;
   int i, j;
-  for(i=0;i<n;i++){
+  /*for(i=0;i<n;i++){
     pb[i]=abs(pb[i]);
-  }
+  }*/
   for(i=0;i<n-1;i++){
-    for(j=i+i;j<n;j++){
-      if(pb[i]<pb[j]){
+    for(j=i+1;j<n;j++){
+      if(abs(pb[i])<abs(pb[j])){
 	temp=pb[i];
 	pb[i]=pb[j];
 	pb[j]=temp;
