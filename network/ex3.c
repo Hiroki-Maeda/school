@@ -52,7 +52,7 @@ void addlist2ndFB(LIST *head, LIST *adddata){
   LIST *bp;
   LIST *temp;
   
-    if(head->next=NULL){
+    if(head->next==NULL){
     head->next=adddata;
     }else{
     for(p=head;(p->next)!=NULL;p=p->next){
