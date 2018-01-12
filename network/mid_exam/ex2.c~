@@ -54,7 +54,7 @@ int main(void){
 
   fclose(fp);
 
-  sort(n,空欄);
+  sort(n,b);
 
   for(i=0;i<n;i++){
     printf("In order, %d\n",b[i]);
@@ -66,12 +66,45 @@ int main(void){
 void sort(int n, int* pb){
   int temp;
   int i, j;
-  for(i=0;i<n;i++){
+  /*for(i=0;i<n;i++){
+    pb[i]=abs(pb[i]);
+  }*/
+  for(i=0;i<n-1;i++){
     for(j=i+i;j<n;j++){
-      if(pb[i]<pb[j]){
+      if(abs(pb[i])<abs(pb[j])){
 	temp=pb[i];
 	pb[i]=pb[j];
 	pb[j]=temp;
+      }
     }
   }
 }
+/*
+q238059h@iav060:~/NPTESTq238059h$ ex2
+Reading -25
+Reading 346
+Reading -4365
+Reading 347
+Reading 89565
+Reading 7235
+Reading -18
+Reading -24757
+Reading 554
+Reading 236
+Reading -818
+Reading 248
+Reading -9145
+In order, 89565
+In order, 24757
+In order, 9145
+In order, 7235
+In order, 4365
+In order, 818
+In order, 554
+In order, 346
+In order, 25
+In order, 236
+In order, 347
+In order, 248
+In order, 18
+*/
