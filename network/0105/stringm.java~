@@ -1,0 +1,7 @@
+class stringm{
+    public static void main(String[] args){
+	String a = "this is a pen.";
+	println(a.charAt(3));
+    }
+    
+}
