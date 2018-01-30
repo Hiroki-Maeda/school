@@ -4,25 +4,45 @@ char nc;
 Seq next;
 }
 class Ex2 {
-static int chkCdn(String sq, String cdn)
+static int chkCdn(String sq, String cdn){
     int count=0;
-    for(int i=0;sq[3+i]!=\0;i++){
-	if(sq.charAt(0+i)==cdn.charAt(0+i)){
-	    if(sq.charAt(1+i)==cdn.charAt(1+i)){
-		if(sq.charAt(2+i)==sq.charAt(2+i)){
-		    count++;
-		}
-	    }
-	}
+    for(int i=0;i<sq.length()-2;i++){
+        System.out.println("");
+        if(sq.charAt(0+i)==cdn.charAt(0)){
+            System.out.println("1");
+            if(sq.charAt(1+i)==cdn.charAt(1)){ 
+                System.out.println("2");
+                if(sq.charAt(2+i)==sq.charAt(2)){
+                    System.out.println("3");
+                    count++;
+                }
+            }
+        }   
 	
     }
     return count;
 }
 static Seq srchS(Seq sq,String startcdn){
-
+    Seq p = new Seq();
+    for(p = sq;p.next!=null;p = p.next){
+        if((p.next).next!=null){
+            if(((p.next).next).next!=null){
+                if(p.nc==startcdn.charAt(0)&&(p.next).nc==startcdn.charAt(1)&&((p.next).next).nc==startcdn.charAt(2)){
+                    return p;
+                }
+            }return null;
+        }return null;
+    }return null;
 }
 static Seq srchE(Seq sq,String[] stopcdn){
-省略
+    Seq p = new Seq();
+    for(p=sq;((p.next).next).next!=null;p=((p.next).next).next){
+        for(int i=0;i<3;i++){
+            if(p.nc==stopcdn[i].charAt(0)&&p.nc==stopcdn[i].charAt(1)&&p.nc==stopcdn[i].charAt(2)){
+                return p;
+            }
+        }
+    }return null;
 }
 public static void main(String[] args){
 String mrna="GCAUGCAUGCGCAUGUGUAAGCAU";
