@@ -1,0 +1,131 @@
+<!DOCTYPE HTML>
+<html lang=ja>
+  <head>
+    <meta charset="UTF-8">
+    <title>問１</title>
+    <link rel="stylesheet" href="./stylesheet.css">
+  </head>
+  <body>
+    <header>
+      <div class="header">
+          <p>web page コンテスト</p>
+          <a href="./index.html" class="nav">home</a><p class="nav"> -&gt 問１</p>
+      </div>
+    </header>
+    <div class="content">
+        <div class="left_content">
+            <p>項目</p>
+            <ul>
+                <li><a href="index.html">home</a></li>
+                <li><a href="./qes_1.html">問１</a></li>
+                <li><a href="./qes_2.html">問２</a></li>
+                <li><a href="./aboutJava.html">Javaの特徴</a></li>
+            </ul>
+        </div>
+    <div class="center_content">
+      <h2>問１</h2>
+      <h3>次の行列の積に関するプログラムで使われる関数をjava言語で作成せよ。</h3><div class="question">
+      <p>このプログラムは、要素として int 型の値を持つ 3 × 3 行列に燗する操作を行っている。<br>2つの関数、関数 matAvrDiagElements と関数 mat4thPower のみ作成せよ。関数 matProduct は作成済みとする。<br>関数 matAvrDiagElements は
+、第1引数の行列からその行列の対角要素(3個の要素)の平均値を求めて返り値として返す
+。関数 matProduct は
+、第1引数の行列(A)と第2引数の行列(B)の積(AB)の結果を第3引数の行列に格納する。関数 mat4thPower は、第1引数の行列を4乗した結果を第2引数の行列に格納する
+。なお、必要であればこれら3つの関数はお互いに内部で使用しても構わない
+
+。ただし、作成する関数はメイン関数内に示している行列の各要素の値が変わっても
+          、正しく動作するように作成すること実行した結果、画面表示はつぎのようになる。</p></div>
+      <h3>出力結果</h3>
+      <img src="./Ex1_pic.jpg">
+      <p>コード全文</p>
+      <div class="source">
+	<pre>
+import java.io.*;
+class Ex1 {
+    static double matAvrDiagElements(int[][] a){
+	return (a[0][0]+a[1][1]+a[2][2])/3.0;
+    }
+    static void matProduct(int[][] a, int[][] b, int[][] c){
+	int[][] temp=new int[3][3]; 
+	for(int i=0;i<3;i++){
+	    for(int j=0;j<3;j++){
+		temp[i][j]=0;
+		for(int k=0;k<3;k++){
+		    temp[i][j]+=a[i][k]*b[k][j];
+		}
+
+	    }
+	}
+	for(int i=0;i<3;i++){
+		for(int j=0;j<3;j++){
+		    c[i][j]=temp[i][j];
+		}
+	}
+    }
+    static void mat4thPower(int[][] a, int[][] d){
+
+	for(int i=0;i<3;i++){
+	    for(int j=0;j<3;j++){
+		d[i][j]=a[i][j];
+	    }
+	}
+        for(int i=0;i<3;i++){
+	    matProduct(a,d,d);
+	}
+    }
+    public static void main(String[] args){
+	int[][] a = {{1,2,3},{4,5,6},{7,8,9}};
+	int[][] b = {{9,8,7},{6,5,4},{3,2,1}};
+	double av;
+	int[][] c = new int[3][3];
+	int[][] d = new int[3][3];
+	av = matAvrDiagElements(a);
+	System.out.println(av);
+	matProduct(a,b,c);
+	for(int i=0;i<3;i++){
+	    for(int j=0;j<3;j++){
+		System.out.print(c[i][j]+"\t");
+	    }
+	    System.out.println();
+	}
+	mat4thPower(a,d);
+	for(int i=0;i<3;i++){
+	    for(int j=0;j<3;j++){
+		System.out.print(d[i][j]+"\t");
+	    }
+	    System.out.println();
+	}
+    }
+
+	</pre>
+
+      </div>
+<p>解答</p>
+<table border="1" bordercolor="#000000">
+  <tr><th>関数名</th><th>コード</th></tr>
+  <tr><td>matAvrDiagElements</td><td>static double matAvrDiagElements(int[][] a){<br>
+	return (a[0][0]+a[1][1]+a[2][2])/3.0;<br>
+    }}</td></tr>
+	  <tr><td>mat4thPower</td><td>static void mat4thPower(int[][] a, int[][] d){<br>
+
+        for(int i=0;i<3;i++){<br>
+	    &nbsp;&nbsp;for(int j=0;j<3;j++){<br>
+		&nbsp;&nbsp;d[i][j]=a[i][j];<br>
+	    &nbsp;&nbsp;}
+	}<br>
+        for(int i=0;i<3;i++){<br>
+	    &nbsp;&nbsp;matProduct(a,d,d);<br>
+	}<br>
+    </td></tr>
+	      </table>
+<p>解説</p>
+<ul>
+  <li>matAvrDiagElement</li>
+  <p>送られてきた配列aのa[0][0],a[1][1],a[2][2]をすべて足してそれを3で割ったものを返している。</p>
+  <li>mat4thPower</li>
+  <p>まずdの中にaと同じものをいれるために int i と int jを使い捨て変数として定義し、for 文で d の中に a を入れる。そのdに matProduct を使用し、3度 a を d にかける事で4乗をしている。</p>
+</ul>
+          <div style="text-align : center;"><a href="qes_2.html">&lt;問２へ&gt;</a></div>
+</div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,189 @@
+<!DOCTYPE>
+<html lang=ja>
+  <head>
+    <meta charset="UTF-8">
+    <title>問２</title>
+    <link rel="stylesheet" href="./stylesheet.css">
+  </head>
+  <body>
+    <header>
+      <div class="header">
+          <p>web page コンテスト</p>
+	  <span><a href="./index.html" class="nav">home</a><p class="nav">-&gt問2</p></span>
+      </div>
+    </header>
+    <div class="content">
+                <div class="left_content">
+            <p>項目</p>
+            <ul>
+                <li><a href="index.html">home</a></li>
+                <li><a href="./qes_1.html">問１</a></li>
+                <li><a href="./qes_2.html">問２</a></li>
+                <li><a href="./aboutJava.html">Javaの特徴</a></li>
+
+            </ul>
+        </div>
+    <div class="center_content">
+      <h2>問2</h2>
+      <h3>次のリスト構造に関するプログラムで使われる関数をJava言語で作成せよ.</h3><div class="question">
+        <p>このプログラムは, 各ノードが char 型の文字を持つリスト構造 (線形リスト) に関する操作を行っ ている。問 2-1 関数 chkCdn を作成せよ. 問 2-2 関数 srchE を作成せよ. 残りの 2 つの関数は作成済みとする。 関数 chkCdn は, 第 1 引数で与えられた文字列中に第 2 引数で指定された３文字からなる文字列が何回登場するかを数える。 関数 srchS は, 第 1 引数に与えられたリスト構造のノードにおいて, 連続する 3 つのノードが持つ文字の並びが, 第 2 引数で与えられた３文字からなる文字列の並びと一致する最初の位置を返り値で返す. 見付からなければ NULL を返す. 以下、ここではゼロも 3 の倍数とする. 関数 srchE は, 第 1 引数に与えられたリスト構造において, リストの先頭のノードをゼロ番目として数えると 3 の倍数の番目になるノードを起点とする連続する 3 つのノードが持つ文字の並びをリストの先頭から順に調べる. 文字列の並びが, 第 2 引数で与えられた 3 文字からなる 3 種類の文字列のいずれかに一致する場合は起点のノードの位置を返り値で返す。 見付からなければ NULL を返す. ただし, 作成する関数はメイン関数内に示された入力としての文字列 mrna の内容が変わっても, 正しく動作するように作成すること。</p></div>
+      <h3>出力結果</h3>
+      <img src="./Ex2.jpg">
+      <p>コード全文</p>
+      <div class="source">
+	<pre>
+import java.io.*;
+class Seq {
+    char nc;
+    Seq next;
+}
+class Ex2 {
+    static int chkCdn(String sq, String cdn){
+	int count=0;
+	for(int i=0;i&lt;sq.length()-2;i++){
+	    if(sq.charAt(0+i)==cdn.charAt(0)){
+		if(sq.charAt(1+i)==cdn.charAt(1)){ 
+		    if(sq.charAt(2+i)==cdn.charAt(2)){
+			count++;
+		    }
+		}
+	    }   
+	
+	}
+	return count;
+    }
+    static Seq srchS(Seq sq,String startcdn){
+	Seq p = new Seq();
+	for(p = sq;p!=null;p = p.next){
+	    if(p.next!=null){
+		if((p.next).next!=null){
+		    if(p.nc==startcdn.charAt(0)&&(p.next).nc==startcdn.charAt(1)&&((p.next).next).nc==startcdn.charAt(2)){
+
+			return p;
+		    }
+		}else{return null;}
+	    }else{return null;}
+	}return null;
+    }
+    static Seq srchE(Seq sq,String[] stopcdn){
+	Seq p = new Seq();
+	for(p=sq;p!=null;p=((p.next).next).next){
+	    if(p.next!=null){
+		if((p.next).next!=null){
+		    for(int i=0;i<3;i++){
+			if(p.nc==stopcdn[i].charAt(0)&&(p.next).nc==stopcdn[i].charAt(1)&&((p.next).next).nc==stopcdn[i].charAt(2)){
+			    return p;
+			}
+		    }
+		    if(((p.next).next).next==null){
+			return null;
+		    }
+		}else{
+		    return null;
+		}
+	    }else{
+		return null;
+	    }
+	    
+	}return null;
+    }
+    public static void main(String[] args){
+	String mrna="GCAUGCAUGCGCAUGUGUAAGCAU";
+	String startcdn="AUG";
+	String[] stopcdn ={"UAA","UAG","UGA"};
+	Seq sq1,sq2,sq2end,sq2stop;
+	Seq pt;
+	int nth=0;
+	int numfound = chkCdn(mrna,startcdn);
+	System.out.println(numfound);
+	sq1 = new Seq();
+	pt= sq1;
+	for(nth=0;nth&lt;mrna.length()-1;nth=nth+1){
+	    pt.nc=mrna.charAt(nth);
+	    pt.next= new Seq();
+	    pt=pt.next;
+	}
+	pt.nc=mrna.charAt(nth);
+	pt.next=null;
+	for(pt=sq1;pt!=null;pt=pt.next){
+	    System.out.print(pt.nc);
+	}
+	System.out.println();
+	sq2=srchS(sq1,startcdn);
+	if(sq2==null){
+	    System.out.println("Start: Not found");
+	} else{
+	    sq2stop=srchE(sq2,stopcdn);
+	    if(sq2stop==null){
+		System.out.println("Stop: Not found");
+	    } else {
+		sq2end=sq2stop.next.next.next;
+		for(pt=sq2;pt!=sq2end;pt=pt.next){
+		    System.out.print(pt.nc);
+		}
+		System.out.println();
+	    }
+	}
+    }
+}
+	      
+	      </pre>
+
+      </div>
+<p>回答</p>
+<table border="1" bordercolor="#000000">
+  <tr><th>関数名</th><th>コード</th></tr>
+  <tr><td>chkCdn</td><td><pre>static int chkCdn(String sq, String cdn){
+	int count=0;
+	for(int i=0;i&lt;sq.length()-2;i++){
+	    if(sq.charAt(0+i)==cdn.charAt(0)){
+		if(sq.charAt(1+i)==cdn.charAt(1)){ 
+		    if(sq.charAt(2+i)==cdn.charAt(2)){
+			count++;
+		    }
+		}
+	    }   
+	
+	}
+	return count;
+   </pre></td></tr>
+	  <tr><td>srchE</td><td><pre>    static Seq srchE(Seq sq,String[] stopcdn){
+	Seq p = new Seq();
+	for(p=sq;p!=null;p=((p.next).next).next){
+	    if(p.next!=null){
+		if((p.next).next!=null){
+		    for(int i=0;i&lt;3;i++){
+		if(
+		p.nc==stopcdn[i].charAt(0)&&
+		(p.next).nc==stopcdn[i].charAt(1)&&
+		((p.next).next).nc==stopcdn[i].charAt(2)
+		){
+			    return p;
+			}
+		    }
+		    if(((p.next).next).next==null){
+			return null;
+		    }
+		}else{
+		    return null;
+		}
+	    }else{
+		return null;
+	    }
+	    
+	}return null;
+    </pre></td></tr>
+	      </table>
+<p>解説</p>
+<ul>
+  <li>chkCdn</li>
+  <p>いくつあったかをカウントするために変数countを定義し0で初期化する。for文でここでもJavaで使える要になった記法int i =0を使用してiを定義する。また文字列の最後から3番めまで回すためにi&lt;sq.length()-2で条件式を指定する。for文の中ではif文を使い、一文字ずつ送られてきたcdnと一致するか確認していく。ここではcとは違い.charAt()を使い配列の文字列の中身を比較する。もし3つとも同じであればcountを＋１しfor文を続ける。このfor文を使用してcdnがいくつ見つかるかを数え、for文を抜けた後returnでcountを返す。</p>
+  <li>srchE</li>
+  <p>まずSeqオブジェクトpを作りまたfor文の中でリストの最初のアドレスを変数に格納する。次に for 文を使用して先ほど作ったpに格納されているリストのアドレスがnullでなければループを行う、for文の中ではif文を2つ使い、pのnextについて2つ先までnullが入っていないか調べる。それぞれもしnullが入って入ればnullを返す。if文を抜けた場合for文を使用しstopcdnの中身とpから始まる文字列3文字目までの比較を3パターン行う。もしどれかと当てはまればのpのアドレスを返す。もしどのstopcdnとも一致しなければpにp3つ先のアドレスを格納して最初のfor文を再び行う。
+  </p>
+</ul>
+</div>
+</div>
+
+</body>
+</html>
