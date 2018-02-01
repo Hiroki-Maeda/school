@@ -28,6 +28,7 @@ header {padding : 1px 10px;
     border-width :1px; 
     border-color: #ffddff;
     background-color : #fff4ff;
+    padding : 0px 20px;
     
 }
 
@@ -118,4 +119,13 @@ table {
 
 pre {
     font-size: 20px;
+}
+
+.commentary {
+    width : 650px;
+    margin : auto;
+}
+
+.title {
+    font-family: fantasy;
 }
